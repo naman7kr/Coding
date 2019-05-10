@@ -2,21 +2,21 @@
 using namespace std;
  #define vp std::vector<pair<int,pair<int,int> > >
 int parent[10000]={-1};
-int rank[10000]={0};
+int rnk[10000]={0};
 
 int find(int a){
 	if(parent[a]==-1){
 		return a;
 	}
-	a=find(parent[a]);
-	return a;
+	parent[a]=find(parent[a]);
+	return parent[a];
 }
 void Union(int sx,int sy){
 	int x=find(sx);
 	int y=find(sy);
-	 if(rank[x]>=rank[y]){
-	 	if(rank[x]==rank[y]){
-	 		rank[x]++;
+	 if(rnk[x]>=rnk[y]){
+	 	if(rnk[x]==rnk[y]){
+	 		rnk[x]++;
 	 	}
 	 	parent[y]=x;
 	 }else{
@@ -45,7 +45,6 @@ main(){
 		int src,dest,weight;
 		cin>>src>>dest>>weight;
 		v.push_back(make_pair(weight, make_pair(src,dest)));
-		
 	}
 	kruskal(v,V,E);
 }

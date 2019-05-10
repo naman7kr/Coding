@@ -17,5 +17,6 @@ int main()
         cout << pq.top() << endl;
         pq.pop();
     }
+    
     cin.get();
 }

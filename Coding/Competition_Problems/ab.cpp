@@ -1,45 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define mp map<string,std::set<pair<string, int> > >
-#define mp1 map<string,std::vector<pair<string,int> > > 
-main()
-{
- int n;
- cin>>n;
- string s[n+10];
- mp m;
- mp1 m1;
- for(int i=1;i<=n;i++)cin>>s[i];
- for(int i=1;i<=n;i++){
-     string t="";
-     for(int j=0;j<s[i].length();j++){
-        t=t+s[i][j];
-        m[t].emplace(make_pair(s[i],i));  
-        m1[t].push_back(make_pair(s[i],i));
-       }
-     }
- int q;
- cin>>q;
- while(q--){
-    int r;
-    string p;
-    cin>>r>>p;
-    string ans;
 
-    string b;
-    for(int i=p.size();i>0;i--){
-         b=p.substr(0,i);
-        if(m1.count(b)&&m1[b][0].second<=r){
-           break;
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int t;
+    cin>>t;
+    while(t--){
+        int n,k;
+        cin>>n>>k;
+        int a[n];
+        for(int i=0;i<n;i++){
+            cin>>a[i];
         }
-    } 
-    auto it=m[b].begin();
-    ans=it->first;
-    while(it->second>r){
-     it++;
-     ans=it->first;
-    
+         if(n==1){
+            cout<<a[0]<<"\n";
+            continue;
+        }
+        sort(a,a+n);
+        
+        for(int i=0;i<n-1;i++){
+            if(a[i]>k){
+                int d = a[i] - k;
+                a[i] = a[i] - d;
+               // cout<<a[i]<<" ";
+                a[i+1] = a[i+1]-d;
+            }
+        }
+
+        int ans = 0;
+        for(int i=0;i<n;i++){
+            //cout<<a[i]<<" ";
+            ans+=a[i];
+        }
+        cout<<ans<<"\n";
     }
-    cout<<ans<<"\n";
- }
 }

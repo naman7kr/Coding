@@ -16,7 +16,7 @@ void bfs(vp v, int V, int src){
 		int p=q.front();
 		q.pop_back();
 		for(int i=0;i<v[p].size();i++){
-			
+		//for(auto u: v[p])	
 			if(dist[v[p][i].first]>v[p][i].second+dist[p]){
 				dist[v[p][i].first]=v[p][i].second+dist[p];
 				
@@ -34,7 +34,7 @@ main(){
 	int V;
 	int E;
 	cin>>V>>E;
-	 vp v(V);
+	 vp v(V,vector<pair<int, int>>(V-1,{0,0}));
 	 for(int i=0;i<E;i++){
 	 	int src,dest,weight;
 		cin>>src>>dest>>weight;
