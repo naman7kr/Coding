@@ -15,7 +15,6 @@ void dfsIterative(vv v,int V, int src){
 	cout<<src<<" ";
 	while(!stk.empty()){
 		int val=stk.top();
-		
 		stk.pop();
 		for(int i=0;i<v[val].size();i++){
 			if(!visited[v[val][i]]){
@@ -26,12 +25,12 @@ void dfsIterative(vv v,int V, int src){
 		}
 	}
 }
-void dfsRecursive(vv v, int V, int src){
+void dfsRecursive(vv v, int src){
 	visited[src]=1;
 	cout<<src<<" ";
 	for(int i=0;i<v[src].size();i++){
 		if(!visited[v[src][i]]){
-			dfsRecursive(v,V,v[src][i]);
+			dfsRecursive(v,v[src][i]);
 		}
 	}
 }
@@ -66,7 +65,7 @@ main(){
 				init(V);
 				cout<<"Input src: ";
 				cin>>src;
-				dfsRecursive(v,V,src);
+				dfsRecursive(v,src);
 				cout<<"\n";
 				break;
 			case 0:

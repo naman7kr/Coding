@@ -11,6 +11,7 @@ void bfs(vp v, int V, int src){
 	while(!q.empty()){
 		int p=q.front();
 		q.pop();
+		
 		for(int i=0;i<v[p].size();i++){
 			if(visited[v[p][i]]==0){
 				q.push(v[p][i]);

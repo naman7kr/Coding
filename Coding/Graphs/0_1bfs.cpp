@@ -14,7 +14,7 @@ void bfs(vp v, int V, int src){
 	dist[src]=0;
 	while(!q.empty()){
 		int p=q.front();
-		q.pop_back();
+		q.pop_front();
 		for(int i=0;i<v[p].size();i++){
 		//for(auto u: v[p])	
 			if(dist[v[p][i].first]>v[p][i].second+dist[p]){

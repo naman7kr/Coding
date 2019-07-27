@@ -45,6 +45,7 @@ using namespace std;
 // 		return 1;
 // 	}
 // }
+
 vector<pair<int,pair<int, int >>> adj;
 vector<int> parent;
 vector<int> dist;
